@@ -6,27 +6,11 @@ import Image from "next/image";
 
 const MySkills = () => {
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div className="container mt-20 relative">
-      <p className={styles.sectionSubText}>Introduction</p>
-      <h2 className={styles.sectionHeadText}>Superpowers.</h2>
+<div className="container mt-20 relative">
+  <p className={styles.sectionSubText}>Introduction</p>
+  <h2 className={styles.sectionHeadText}>Superpowers.</h2>
 
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3   ">
-=======
-    <div className="container mt-20">
-      <p className={styles.sectionSubText}>Introduction</p>
-      <h2 className={styles.sectionHeadText}>Superpowers.</h2>
-
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3  ">
->>>>>>> 035f867 (Updated projects)
-=======
-    <div className="container mt-20 relative">
-      <p className={styles.sectionSubText}>Introduction</p>
-      <h2 className={styles.sectionHeadText}>Superpowers.</h2>
-
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3   ">
->>>>>>> 46c8752 (Add GitHub API integration and enhance UI components)
+  <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3   ">
         {mySkills.map((item, index) => (
           <div
             key={index}

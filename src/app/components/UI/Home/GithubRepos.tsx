@@ -61,7 +61,7 @@ const GitHubData = () => {
   );
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-conic-45 rounded-lg shadow-lg overflow-hidden">
+    <div className="container mx-auto bg-conic-45 from-red-500 to-green-500 rounded-lg shadow-lg overflow-hidden">
       <div className="p-6">
         <h2 className="text-2xl font-bold text-white mb-2">
           GitHub Statistics
