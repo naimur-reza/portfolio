@@ -16,7 +16,7 @@ const Services = () => {
               alt="bio-white-image"
             />
             <Image
-              className="w-96 h-full object-contain absolute top-0 left-0 z-[3] brightness-110 mix-blend-multiply"
+              className="w-96 h-full object-contain absolute top-0 left-0 z-3 brightness-110 mix-blend-multiply"
               src={assets.anik}
               height={350}
               width={350}

@@ -19,7 +19,7 @@ const MySkills = () => {
           >
             <div
               className="   rounded-[4rem] overflow-hidden
-          bg-gradient-to-bl from-slate-900/50 to-stone-900/60
+          bg-linear-to-bl from-slate-900/50 to-stone-900/60
           w-full block p-7 border border-gray-800/20 shadow-lg"
             >
               <div className="pl-4 mb-4 flex cursor-pointer md:cursor-default justify-between items-center">

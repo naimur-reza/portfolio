@@ -28,7 +28,7 @@ const Modal = ({
           >
             <div
               className="rounded-[4rem] overflow-hidden
-          bg-gradient-to-bl from-slate-900 to-stone-900
+          bg-linear-to-bl from-slate-900 to-stone-900
           relative border border-white border-opacity-10 w-full md:w-11/12 min-h-[90vh] p-5 py-10 md:p-10"
             >
               {/* header */}
@@ -39,7 +39,7 @@ const Modal = ({
                     {type}
                   </p>
 
-                  <h1 className="text-4xl md:text-h1 md:leading-[1] text-light font-bold ml-2 md:ml-0 mb-4 md:mb-0 text-gray-100">
+                  <h1 className="text-4xl md:text-h1 md:leading-none text-light font-bold ml-2 md:ml-0 mb-4 md:mb-0 text-gray-100">
                     {name}
                   </h1>
                 </div>

@@ -1,24 +1,64 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap')
+layer(base);
 
-@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap')
+layer(base);
 
-@font-face {
-  font-family: "Algem";
-  src: url("/public/fonts/Algem-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #050816;
+  --color-secondary: #aaa6c3;
+  --color-tertiary: #151030a9;
+  --color-black-100: #100d25;
+  --color-black-200: #090325;
+  --color-white-100: #f3f3f3;
+  --color-deep: #08060f;
+
+  --shadow-card: 0px 35px 120px -15px #211e35;
+
+  --breakpoint-xs: 450px;
+
+  --font-Michroma: Michroma, sans-serif;
+  --font-Alkatra: Alkatra, sans-serif;
+  --font-poppins: Poppins, sans-serif;
+  --font-dharmagothic: DharmaGothic, sans-serif;
+  --font-algem: Algem, sans-serif;
 }
 
-@font-face {
-  font-family: "DharmaGothic";
-  src: url("/public/fonts/DharmaGothicE_ExBold_R.otf");
-  font-weight: normal;
-  font-style: normal;
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: 'Algem';
+    src: url('/public/fonts/Algem-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'DharmaGothic';
+    src: url('/public/fonts/DharmaGothicE_ExBold_R.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
 
 .container {
   @apply max-w-[1240px] mx-auto px-5 lg:px-0;

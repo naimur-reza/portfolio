@@ -29,7 +29,7 @@ const Menu = () => {
         <button
           onClick={toggleMenu}
           type="button"
-          className=" text-gray-200  hover:text-gray-400 focus:outline-none  focus:text-gray-400"
+          className=" text-gray-200  hover:text-gray-400 focus:outline-hidden  focus:text-gray-400"
           aria-label="toggle menu"
         >
           {!isOpen ? (

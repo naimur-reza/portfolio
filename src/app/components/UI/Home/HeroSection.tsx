@@ -40,7 +40,7 @@ const HeroSection = () => {
 
           <div>
             <Image
-              className="absolute top-0 left-0 z-[2] w-full h-full"
+              className="absolute top-0 left-0 z-2 w-full h-full"
               src={assets.heroEl}
               alt="logo"
               height={500}
@@ -51,14 +51,14 @@ const HeroSection = () => {
           <div className="max-lg:hidden w-[250px] xxl:w-[350px] h-[250px] xxl:h-[350px] absolute top-[5%] blur-[100px] right-[12%] bg-[#3a96ff]/50" />
         </div>
         <Image
-          className="hidden lg:block absolute bottom-5 right-5 z-[2] w-14"
+          className="hidden lg:block absolute bottom-5 right-5 z-2 w-14"
           src={assets.heroElRight}
           alt="logo"
           height={200}
           width={200}
         />
         <Image
-          className="absolute bottom-5 left-5 z-[2] w-40"
+          className="absolute bottom-5 left-5 z-2 w-40"
           src={assets.heroElLeft}
           alt="logo"
           height={200}

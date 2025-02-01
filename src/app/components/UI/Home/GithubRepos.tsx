@@ -142,17 +142,17 @@ const StatsCard = ({ value, label }: { value: number; label: string }) => (
 
 const LoadingSkeleton = () => (
   <div className="w-full max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden p-6">
-    <div className="h-8 w-3/4 bg-gray-700 rounded mb-2"></div>
-    <div className="h-4 w-1/2 bg-gray-700 rounded mb-6"></div>
+    <div className="h-8 w-3/4 bg-gray-700 rounded-sm mb-2"></div>
+    <div className="h-4 w-1/2 bg-gray-700 rounded-sm mb-6"></div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="h-24 w-full bg-gray-700 rounded"></div>
+            <div key={i} className="h-24 w-full bg-gray-700 rounded-sm"></div>
           ))}
         </div>
       </div>
-      <div className="h-[300px] w-full bg-gray-700 rounded"></div>
+      <div className="h-[300px] w-full bg-gray-700 rounded-sm"></div>
     </div>
   </div>
 );

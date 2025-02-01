@@ -51,7 +51,7 @@ const ProjectCard = ({
           alt={name}
         />
 
-        <div className="absolute   inset-0 bg-gradient-to-bl from-slate-900 to-stone-900 opacity-40"></div>
+        <div className="absolute   inset-0 bg-linear-to-bl from-slate-900 to-stone-900 opacity-40"></div>
 
         <div className="absolute  bottom-0 left-0 p-3 md:p-8">
           <div
