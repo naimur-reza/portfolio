@@ -6,11 +6,11 @@ import Image from "next/image";
 
 const MySkills = () => {
   return (
-<div className="container mt-20 relative">
-  <p className={styles.sectionSubText}>Introduction</p>
-  <h2 className={styles.sectionHeadText}>Superpowers.</h2>
+    <div className="container mt-20 relative">
+      <p className={styles.sectionSubText}>Introduction</p>
+      <h2 className={styles.sectionHeadText}>Superpowers.</h2>
 
-  <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3   ">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3   ">
         {mySkills.map((item, index) => (
           <div
             key={index}
@@ -55,17 +55,6 @@ const MySkills = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="w-full flex  justify-end flex-col  h-full col-span-2 lg:col-span-3 absolute bottom-0  ">
-        <video
-          loop
-          autoPlay
-          muted
-          playsInline
-          preload="false"
-          src="/cards-video.webm"
-        />
       </div>
 
       <div className="absolute inset-0 bg-black/20"></div>

@@ -17,9 +17,9 @@ const App = () => {
         <div className=" max-w-[1050px] mx-auto px-5 ">
           <HeroSection />
           <Services />
+          <GitHubRepos />
           <Projects />
           <MySkills />
-          <GitHubRepos />
         </div>
         {/* <Footer /> */}
       </div>

@@ -61,14 +61,12 @@ const GitHubData = () => {
   );
 
   return (
-    <div className="container mx-auto bg-conic-45 from-red-500 to-green-500 rounded-lg shadow-lg overflow-hidden">
+    <div className="container z-50 relative mx-auto  rounded-4xl shadow-lg  overflow-hidden">
       <div className="p-6">
-        <h2 className="text-2xl font-bold text-white mb-2">
+        <h2 className="text-2xl font-semibold text-white/90 mb-2">
           GitHub Statistics
         </h2>
-        <p className="text-gray-400 mb-6">
-          An overview of your GitHub activity
-        </p>
+        <p className="text-gray-400 mb-6">An overview of my GitHub activity</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <StatsGrid
@@ -113,6 +111,18 @@ const GitHubData = () => {
           </div>
         </div>
       </div>
+
+      <div className="w-full flex -z-10 justify-end flex-col  h-full col-span-2 lg:col-span-3 absolute bottom-0  ">
+        <video
+          loop
+          autoPlay
+          muted
+          playsInline
+          preload="false"
+          src="/cards-video.webm"
+        />
+      </div>
+      <div className="absolute inset-0 bg-black/20 -z-10 "></div>
     </div>
   );
 };
@@ -123,7 +133,7 @@ interface Stat {
 }
 
 const StatsGrid = ({ stats }: { stats: Stat[] }) => (
-  <div className="grid grid-cols-2 gap-4">
+  <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
     {stats.map((stat, index) => (
       <StatsCard key={index} {...stat} />
     ))}
@@ -133,7 +143,7 @@ const StatsGrid = ({ stats }: { stats: Stat[] }) => (
 const StatsCard = ({ value, label }: { value: number; label: string }) => (
   <motion.div
     whileHover={{ scale: 1.05 }}
-    className="flex flex-col items-center justify-center p-4 rounded-lg bg-gray-700 text-white"
+    className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gray-700/30 text-white"
   >
     <p className="text-2xl font-bold">{value.toLocaleString()}</p>
     <h3 className="text-sm text-gray-300">{label}</h3>
