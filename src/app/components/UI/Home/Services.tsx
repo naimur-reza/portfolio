@@ -5,23 +5,21 @@ import React from "react";
 const Services = () => {
   return (
     <>
-      <div id="services" className=" container min-h-screen flex items-center ">
-        <div className="flex flex-col lg:flex-row items-center  gap-8 ">
-          <div className="relative  overflow-hidden ">
-            <Image
-              className="w-96 h-full   inline-block overflow-hidden  "
-              src={assets.bioWhiteImage}
-              height={350}
-              width={350}
-              alt="bio-white-image"
-            />
-            <Image
-              className="w-96 h-full object-contain absolute top-0 left-0 z-3 brightness-110 mix-blend-multiply"
-              src={assets.anik}
-              height={350}
-              width={350}
-              alt="bio-white-image"
-            />
+      <div
+        id="services"
+        className=" container min-h-screen flex items-center relative z-30"
+      >
+        <div className="flex flex-col lg:flex-row items-center  gap-8 z-30 ">
+          <div className="relative">
+            <div className="border rounded-2xl border-gray-800 bg-linear-45 from-white/20 backdrop-blur-sm to-stone-900/60 overflow-hidden">
+              <Image
+                className="brightness-99"
+                src={assets.anik}
+                height={350}
+                width={320}
+                alt="bio-white-image"
+              />
+            </div>
           </div>
 
           <div className=" max-w-xl text-white space-y-5">
@@ -40,6 +38,17 @@ const Services = () => {
             <p>Based In Bangladesh</p>
           </div>
         </div>
+        <div className="w-full flex z-10 justify-end flex-col  h-full col-span-2 lg:col-span-3 absolute bottom-0  ">
+          <video
+            loop
+            autoPlay
+            muted
+            playsInline
+            preload="false"
+            src="/encryption.webm"
+          />
+        </div>
+        {/* <div className="absolute inset-0 bg-black/20 -z-10 "></div> */}
       </div>
     </>
   );

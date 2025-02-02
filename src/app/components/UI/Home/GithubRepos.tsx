@@ -1,6 +1,7 @@
 "use client";
 
 import { GITHUB_QUERY } from "@/api/githubApi";
+import { styles } from "@/app/styles/styles";
 import { getRandomColor } from "@/utils/getRandomColor";
 import { ApolloClient, InMemoryCache, gql, useQuery } from "@apollo/client";
 import { motion } from "framer-motion";
@@ -63,10 +64,8 @@ const GitHubData = () => {
   return (
     <div className="container z-50 relative mx-auto  rounded-4xl shadow-lg  overflow-hidden">
       <div className="pt-10">
-        <h2 className="text-2xl font-semibold text-white/90 mb-2">
-          GitHub Statistics
-        </h2>
-        <p className="text-gray-400 mb-6">An overview of my GitHub activity</p>
+        <p className={styles.sectionSubText}>MY ACTIVITY</p>
+        <h2 className={styles.sectionHeadText}>GitHub.</h2>
         <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <StatsGrid
@@ -95,6 +94,10 @@ const GitHubData = () => {
                 >
                   {languageData.map((entry, index) => (
                     <Cell
+                      style={{
+                        stroke: getRandomColor(entry.name),
+                        strokeWidth: 0.7,
+                      }}
                       key={`cell-${index}`}
                       fill={getRandomColor(entry.name)}
                     />
@@ -146,20 +149,20 @@ const StatsCard = ({ value, label }: { value: number; label: string }) => (
 
 const LoadingSkeleton = () => (
   <div className="p-6">
-    <div className="h-8 w-3/4 bg-gray-700/70 rounded-sm mb-2"></div>
-    <div className="h-4 w-1/2 bg-gray-700/70 rounded-sm mb-6"></div>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="h-8 w-1/4 bg-gray-700/70 rounded-sm mb-2"></div>
+    <div className="h-4 w-1/3 bg-gray-700/70 rounded-sm mb-6"></div>
+    <div className="grid grid-cols-1 md:grid-cols-2 mt-5 gap-6">
       <div className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 mt-5">
           {[...Array(4)].map((_, i) => (
             <div
               key={i}
-              className="h-24 w-full bg-gray-700/70 rounded-sm"
+              className="h-20 w-full bg-gray-700/70 rounded-sm"
             ></div>
           ))}
         </div>
       </div>
-      <div className="h-[300px] w-full bg-gray-700/70 rounded-sm"></div>
+      <div className="h-50 w-50  bg-gray-700/70 rounded-full"></div>
     </div>
   </div>
 );
