@@ -62,12 +62,12 @@ const GitHubData = () => {
 
   return (
     <div className="container z-50 relative mx-auto  rounded-4xl shadow-lg  overflow-hidden">
-      <div className="p-6">
+      <div className="pt-10">
         <h2 className="text-2xl font-semibold text-white/90 mb-2">
           GitHub Statistics
         </h2>
         <p className="text-gray-400 mb-6">An overview of my GitHub activity</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <StatsGrid
               stats={[
@@ -79,18 +79,15 @@ const GitHubData = () => {
             />
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-2 text-white">
-              Top Languages
-            </h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
+                  className="select-none border-none"
                   data={languageData}
                   cx="50%"
                   cy="50%"
-                  labelLine={false}
+                  innerRadius={60}
                   outerRadius={80}
-                  fill="#8884d8"
                   dataKey="value"
                   label={({ name, percent }) =>
                     `${name} ${(percent * 100).toFixed(0)}%`
@@ -103,9 +100,6 @@ const GitHubData = () => {
                     />
                   ))}
                 </Pie>
-                <Tooltip
-                  contentStyle={{ backgroundColor: "#1f2937", border: "none" }}
-                />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -151,18 +145,21 @@ const StatsCard = ({ value, label }: { value: number; label: string }) => (
 );
 
 const LoadingSkeleton = () => (
-  <div className="w-full max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden p-6">
-    <div className="h-8 w-3/4 bg-gray-700 rounded-sm mb-2"></div>
-    <div className="h-4 w-1/2 bg-gray-700 rounded-sm mb-6"></div>
+  <div className="p-6">
+    <div className="h-8 w-3/4 bg-gray-700/70 rounded-sm mb-2"></div>
+    <div className="h-4 w-1/2 bg-gray-700/70 rounded-sm mb-6"></div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="h-24 w-full bg-gray-700 rounded-sm"></div>
+            <div
+              key={i}
+              className="h-24 w-full bg-gray-700/70 rounded-sm"
+            ></div>
           ))}
         </div>
       </div>
-      <div className="h-[300px] w-full bg-gray-700 rounded-sm"></div>
+      <div className="h-[300px] w-full bg-gray-700/70 rounded-sm"></div>
     </div>
   </div>
 );

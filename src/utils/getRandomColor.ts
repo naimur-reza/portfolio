@@ -1,7 +1,10 @@
 export const getRandomColor = (language: string) => {
   const languageColors: { [key: string]: string } = {
+    // dark version of colors
     JavaScript: "#f1e05a",
     TypeScript: "#3178c6",
+    HTML: "#e34c26",
+    CSS: "#563d7c",
     Python: "#3572A5",
     Java: "#b07219",
     Ruby: "#701516",

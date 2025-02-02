@@ -1,11 +1,11 @@
-import React from "react";
-import Image from "next/image";
 import { assets } from "@/assets";
+import Image from "next/image";
+import React from "react";
 
 const Services = () => {
   return (
     <>
-      <div id="services" className="  min-h-screen flex items-center ">
+      <div id="services" className=" container min-h-screen flex items-center ">
         <div className="flex flex-col lg:flex-row items-center  gap-8 ">
           <div className="relative  overflow-hidden ">
             <Image
