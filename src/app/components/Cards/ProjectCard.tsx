@@ -56,7 +56,7 @@ const ProjectCard = ({
         <div className="absolute  bottom-0 left-0 p-3 md:p-8">
           <div
             style={{ transition: "all 0.5s " }}
-            className="w-4/5 md:w-full md:bg-stone-800 md:bg-opacity-40 md:group-hover:bg-[#56ccf2] md:group-hover:bg-opacity-20 p-4 md:py-3 md:px-8 rounded-full"
+            className="w-4/5 md:w-full md:bg-stone-800 md:bg-opacity-40 md:group-hover:bg-[#56ccf2]/20 md:group-hover:bg-opacity-20 p-4 md:py-3 md:px-8 rounded-full"
           >
             <h1 className="text-muted text-gray-400 font-medium text-[14px] text-sm tracking-wide hidden md:block">
               {type}

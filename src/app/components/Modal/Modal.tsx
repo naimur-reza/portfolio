@@ -1,9 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaGithub, FaLink, FaDatabase } from "react-icons/fa";
+import { FaDatabase, FaGithub, FaLink } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 
 const Modal = ({
@@ -21,16 +19,12 @@ const Modal = ({
   return (
     <>
       {showModal && (
-        <div className="relative">
+        <div className="relative z-100 ">
           <div
             style={{ opacity: 1, transform: "none" }}
-            className="z-40 p-0 py-10 md:p-10 flex items-start overflow-y-scroll justify-center fixed top-0 left-0 w-full h-full bg-opacity-80 bg-stone-900 transition-opacity"
+            className="z-100 p-0 pt-8   flex items-start overflow-y-scroll justify-center fixed top-0 left-0 w-full h-full bg-opacity-80 bg-stone-900 transition-opacity"
           >
-            <div
-              className="rounded-[4rem] overflow-hidden
-          bg-linear-to-bl from-slate-900 to-stone-900
-          relative border border-white border-opacity-10 w-full md:w-11/12 min-h-[90vh] p-5 py-10 md:p-10"
-            >
+            <div className="rounded-[4rem]  min-h-[90vh] overflow-hidden bg-linear-to-bl from-slate-900 to-stone-900 relative border border-white/20 w-full md:w-11/12 p-5 md:p-10 ">
               {/* header */}
 
               <div className="flex justify-between items-center">
@@ -99,7 +93,7 @@ const Modal = ({
                   </div>
                 </div>
 
-                <div className="relative rounded-[4rem]  lg:w-1/2 h-[10rem] sm:h-[20rem] md:h-[30rem] object-contain bg-slate-800 flex items-center  ">
+                <div className="relative rounded-[4rem]    object-contain bg-slate-800 flex items-center  ">
                   <Image
                     className="rounded-lg lg:rounded-none mb-4"
                     style={{ width: "100%", display: "inline-block" }}

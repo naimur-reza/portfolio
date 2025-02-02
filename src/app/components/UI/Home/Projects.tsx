@@ -1,12 +1,5 @@
 "use client";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import ProjectCard from "../../Cards/ProjectCard";
->>>>>>> 035f867 (Updated projects)
-=======
->>>>>>> 46c8752 (Add GitHub API integration and enhance UI components)
 import { styles } from "@/app/styles/styles";
 import { projects } from "@/constants/projectsData";
 import ProjectCard from "../../Cards/ProjectCard";
