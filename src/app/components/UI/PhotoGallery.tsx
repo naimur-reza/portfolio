@@ -1,14 +1,14 @@
 "use client";
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { myImages } from "@/constants";
+import { fadeIn } from "@/utils/motions";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import React from "react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import { EffectCards } from "swiper/modules";
-import Image from "next/image";
-import { fadeIn } from "@/utils/motions";
-import { myImages } from "@/constants";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function PhotoGallery() {
   return (
@@ -30,12 +30,11 @@ export default function PhotoGallery() {
             <SwiperSlide key={index}>
               <Image
                 className="rounded-xl"
-                loading="lazy"
                 src={image}
                 alt={`image-${index}`}
                 height={400}
                 width={400}
-                layout="responsive"
+                loading="lazy"
               />
             </SwiperSlide>
           ))}
