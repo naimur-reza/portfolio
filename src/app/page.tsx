@@ -14,8 +14,8 @@ const App = () => {
       <CursorAnimation />
       <div className=" bg-deep overflow-hidden">
         <Menu />
-        <div className=" max-w-[1050px] mx-auto px-5 ">
-          <HeroSection />
+        <HeroSection />
+        <div className="container mx-auto px-5 ">
           <Services />
           <GitHubRepos />
           <Projects />

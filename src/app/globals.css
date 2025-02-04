@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap')
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap")
 layer(base);
 
-@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap')
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap")
 layer(base);
 
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-primary: #050816;
@@ -46,20 +46,30 @@ layer(base);
 
 @layer base {
   @font-face {
-    font-family: 'Algem';
-    src: url('/public/fonts/Algem-Regular.ttf');
+    font-family: "Algem";
+    src: url("/public/fonts/Algem-Regular.ttf");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'DharmaGothic';
-    src: url('/public/fonts/DharmaGothicE_ExBold_R.otf');
+    font-family: "DharmaGothic";
+    src: url("/public/fonts/DharmaGothicE_ExBold_R.otf");
     font-weight: normal;
     font-style: normal;
   }
 }
 
+@theme {
+  --color-graident-viloet: linear-gradient(90deg, #8a2be2 0%, #ff00ff 100%);
+}
+
+@layer components {
+  .gradient-violet {
+    background: var(--color-graident-viloet);
+  }
+}
+
 .container {
-  @apply max-w-[1240px] mx-auto px-5 lg:px-0;
+  @apply max-w-5xl mx-auto px-5 lg:px-0;
 }

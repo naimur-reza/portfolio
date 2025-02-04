@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { assets } from "@/assets";
 import navItems from "@/constants/navItems";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="flex  font-Michroma  justify-between container py-5">
+    <div className="flex backdrop-blur-sm items-center  fixed w-full  bg-black/20 z-100 font-Michroma  justify-between px-5 md:px-4   h-16 ">
       <div className="w-10 z-50 h-10 rounded-full overflow-hidden relative">
         <Image
           className="object-cover hover:scale-125 duration-200 transition"
@@ -67,7 +67,7 @@ const Menu = () => {
       </div>
 
       <ul
-        className={`absolute lg:relative pt-20 p-10 lg:p-0 transition-all duration-300 ease-in-out  lg:flex gap-7  space-y-4 lg:space-y-0 inset-x-0  bg-black/90 lg:bg-transparent z-10  items-center text-gray-200  ${
+        className={`absolute lg:relative  mt-10 px-5 py-10  md:mt-0  lg:p-0 transition-all duration-500 ease-initial  lg:flex gap-7  space-y-6 lg:space-y-0 inset-x-0  bg-black/90 lg:bg-transparent z-10  items-center text-gray-200  ${
           isOpen ? "top-0" : "-top-96 lg:top-0"
         }`}
       >
