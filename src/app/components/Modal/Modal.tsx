@@ -1,6 +1,10 @@
+"use client";
+
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { FaDatabase, FaGithub, FaLink } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 
@@ -16,13 +20,37 @@ const Modal = ({
   live_link,
   image,
 }: any) => {
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    if (modalRef.current) {
+      if (showModal) {
+        disableBodyScroll(modalRef.current);
+      } else {
+        enableBodyScroll(modalRef.current);
+      }
+    }
+
+    return () => {
+      if (modalRef.current) {
+        enableBodyScroll(modalRef.current);
+      }
+    };
+  }, [showModal]);
+
   return (
-    <>
+    <AnimatePresence>
       {showModal && (
-        <div className="relative z-100 ">
+        <motion.div
+          ref={modalRef}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="relative z-100 "
+        >
           <div
             style={{ opacity: 1, transform: "none" }}
-            className="z-100 p-0 pt-8   flex items-start overflow-y-scroll justify-center fixed top-0 left-0 w-full h-full bg-opacity-80 bg-stone-900 transition-opacity"
+            className=" p-0 pt-8   flex items-start overflow-y-scroll justify-center fixed top-0 left-0 w-full h-full bg-opacity-80 bg-stone-900 transition-opacity"
           >
             <div className="rounded-[4rem]  min-h-[90vh] overflow-hidden bg-linear-to-bl from-slate-900 to-stone-900 relative border border-white/20 w-full md:w-11/12 p-5 md:p-10 ">
               {/* header */}
@@ -93,23 +121,22 @@ const Modal = ({
                   </div>
                 </div>
 
-                <div className="relative rounded-[4rem]    object-contain bg-slate-800 flex items-center  ">
+                <div className="relative rounded-[4rem] overflow-hidden    object-contain bg-slate-800 flex items-center  ">
                   <Image
-                    className="rounded-lg lg:rounded-none mb-4"
+                    className="  my-5 object-cover"
                     style={{ width: "100%", display: "inline-block" }}
                     src={image}
                     alt={name}
                     height={500}
                     width={500}
-                    objectFit={"cover"}
                   />
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

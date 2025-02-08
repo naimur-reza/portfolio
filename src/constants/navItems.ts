@@ -1,8 +1,7 @@
-import { FaHome } from "react-icons/fa";
-import { IoMdContact } from "react-icons/io";
-import { IoMdConstruct } from "react-icons/io";
 import { BsBriefcase } from "react-icons/bs";
+import { FaHome } from "react-icons/fa";
 import { GoDownload } from "react-icons/go";
+import { IoMdConstruct, IoMdContact } from "react-icons/io";
 
 const navItems = [
   {

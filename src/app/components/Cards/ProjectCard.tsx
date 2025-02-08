@@ -44,8 +44,7 @@ const ProjectCard = ({
         w-full h-[10rem] md:h-[17rem] lg:h-[20rem] "
       >
         <Image
-          className="opacity-50"
-          objectFit="cover"
+          className="opacity-50 object-cover"
           src={image}
           fill
           alt={name}
