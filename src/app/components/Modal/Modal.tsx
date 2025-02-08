@@ -1,12 +1,24 @@
 "use client";
 
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { FaDatabase, FaGithub, FaLink } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
+
+interface ModalProps {
+  showModal: boolean;
+  setShowModal: (show: boolean) => void;
+  name: string;
+  type: string;
+  techIcons: string[];
+  description: string;
+  server_link?: string;
+  client_link?: string;
+  live_link: string;
+  image: string;
+}
 
 const Modal = ({
   showModal,
@@ -19,121 +31,131 @@ const Modal = ({
   client_link,
   live_link,
   image,
-}: any) => {
-  const modalRef = useRef(null);
+}: ModalProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (modalRef.current) {
-      if (showModal) {
-        disableBodyScroll(modalRef.current);
-      } else {
-        enableBodyScroll(modalRef.current);
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setShowModal(false);
       }
+    };
+
+    if (showModal) {
+      document.addEventListener("mousedown", handleOutsideClick);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      if (modalRef.current) {
-        enableBodyScroll(modalRef.current);
-      }
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.body.style.overflow = "unset";
     };
-  }, [showModal]);
+  }, [showModal, setShowModal]);
 
   return (
     <AnimatePresence>
       {showModal && (
         <motion.div
-          ref={modalRef}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="relative z-100 "
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm"
         >
-          <div
-            style={{ opacity: 1, transform: "none" }}
-            className=" p-0 pt-8   flex items-start overflow-y-scroll justify-center fixed top-0 left-0 w-full h-full bg-opacity-80 bg-stone-900 transition-opacity"
+          <motion.div
+            ref={modalRef}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ type: "spring", damping: 20, stiffness: 250 }}
+            className="w-full mx-2 max-w-4xl max-h-[90vh]   bg-gradient-to-bl from-slate-900 to-stone-900 rounded-[3rem] border border-white/20 p-6 relative"
           >
-            <div className="rounded-[4rem]  min-h-[90vh] overflow-hidden bg-linear-to-bl from-slate-900 to-stone-900 relative border border-white/20 w-full md:w-11/12 p-5 md:p-10 ">
-              {/* header */}
-
-              <div className="flex justify-between items-center">
-                <div>
-                  <p className="text-[#2f80ed] font-[20px] ml-2 md:ml-0 md:mb-1 tracking-wide">
-                    {type}
-                  </p>
-
-                  <h1 className="text-4xl md:text-h1 md:leading-none text-light font-bold ml-2 md:ml-0 mb-4 md:mb-0 text-gray-100">
-                    {name}
-                  </h1>
-                </div>
-
-                <button
-                  className="text-white"
-                  onClick={() => setShowModal(!showModal)}
-                >
-                  <MdOutlineCancel className="w-8  h-8 text-[#56ccf2]" />
-                </button>
+            <div className="flex justify-between items-center mb-6">
+              <div>
+                <span className="text-[#2f80ed] text-sm font-semibold tracking-wide">
+                  {type}
+                </span>
+                <h2 className="text-3xl font-bold text-gray-100 mt-1">
+                  {name}
+                </h2>
               </div>
+              <button
+                onClick={() => setShowModal(false)}
+                className="text-[#56ccf2] hover:text-white transition-colors duration-200"
+                aria-label="Close modal"
+              >
+                <MdOutlineCancel className="w-8 h-8" />
+              </button>
+            </div>
 
-              {/* links */}
-
-              <div className="flex flex-col-reverse space-y-5 sm:space-y-0 sm:flex-row sm:space-x-3 mb-1  mt-2">
-                <div className="mt-10 lg:mt-5 w-full lg:w-1/2">
-                  <div className="flex items-center gap-2">
-                    {client_link && (
-                      <Link target="_blank" href={client_link}>
-                        <button className="h-12 inline-flex text-lg items-center space-x-2 px-6 rounded-xl  undefined text-[#2f80ed] bg-slate-800 hover:bg-sky-800/45">
-                          <FaGithub className="mr-2 hidden md:block" /> Client
-                          side
-                        </button>
-                      </Link>
-                    )}
-                    {server_link && (
-                      <Link href={server_link}>
-                        <button className="h-12 inline-flex text-lg items-center space-x-2 px-6 rounded-xl  undefined text-[#2f80ed] bg-slate-800 hover:bg-sky-800/45">
-                          <FaDatabase className="mr-2 hidden md:block" />
-                          Server side
-                        </button>
-                      </Link>
-                    )}
-                    <Link target="_blank" href={live_link}>
-                      <button className="h-12 inline-flex text-lg items-center space-x-2 px-6 rounded-xl  undefined text-[#2f80ed] bg-slate-800 hover:bg-sky-800/45">
-                        <FaLink className="mr-2 hidden md:block" />
-                        Live site
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-4">
+                <div className="relative md:aspect-video rounded-lg overflow-hidden">
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    alt={name}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {techIcons.map((icon, index) => (
+                    <Image
+                      key={index}
+                      src={icon || "/placeholder.svg"}
+                      alt={`Tech icon ${index + 1}`}
+                      width={40}
+                      height={40}
+                      className="rounded-md"
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="space-y-4">
+                <p className="text-gray-300 text-sm leading-tight tracking-wide   md:text-lg">
+                  {description}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {client_link && (
+                    <Link
+                      href={client_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <button className="flex items-center space-x-2 px-4 py-2 rounded-xl text-[#2f80ed] bg-slate-800 hover:bg-sky-800/45 transition-colors duration-200">
+                        <FaGithub className="mr-2" /> <span>Client</span>
                       </button>
                     </Link>
-                  </div>
-
-                  <div className="flex flex-wrap gap-3 mt-4">
-                    {techIcons.map((item: any, index: number) => (
-                      <Image
-                        key={index}
-                        src={item}
-                        alt={item}
-                        className="h-10"
-                        height={40}
-                        width={40}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="text-lg text-gray-300 tracking-wide mt-4">
-                    {description}
-                  </div>
-                </div>
-
-                <div className="relative rounded-[4rem] overflow-hidden    object-contain bg-slate-800 flex items-center  ">
-                  <Image
-                    className="  my-5 object-cover"
-                    style={{ width: "100%", display: "inline-block" }}
-                    src={image}
-                    alt={name}
-                    height={500}
-                    width={500}
-                  />
+                  )}
+                  {server_link && (
+                    <Link
+                      href={server_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <button className="flex items-center space-x-2 px-4 py-2 rounded-xl text-[#2f80ed] bg-slate-800 hover:bg-sky-800/45 transition-colors duration-200">
+                        <FaDatabase className="mr-2" /> <span>Server</span>
+                      </button>
+                    </Link>
+                  )}
+                  <Link
+                    href={live_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="flex items-center space-x-2 px-4 py-2 rounded-xl text-[#2f80ed] bg-slate-800 hover:bg-sky-800/45 transition-colors duration-200">
+                      <FaLink className="mr-2" /> <span>Live Site</span>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

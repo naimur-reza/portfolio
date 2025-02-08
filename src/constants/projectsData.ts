@@ -22,8 +22,7 @@ export const projects = [
   {
     name: "RetrieveX",
     description:
-      "RetrieveX is a community-driven platform designed to help individuals report and reclaim lost items. The goal is to create a seamless process for reuniting people with their belongings, making it easier and faster for lost items to find their way back to their rightful owners. Key features include user accounts, detailed reporting for lost and found items, a claim system with ownership verification, an admin dashboard, and a secure login system with password hashing. Users can easily search and filter through reports, and the site supports both dark and light modes for accessibility.",
-
+      "RetrieveX is a community-driven platform for reporting and reclaiming lost items. It streamlines the process with user accounts, detailed reports, ownership verification, an admin dashboard, and secure login. Users can search, filter reports, and switch between dark and light modes for accessibility.",
     techIcons: [
       assets.reactJs,
       assets.prisma,

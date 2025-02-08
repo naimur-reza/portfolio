@@ -38,12 +38,12 @@ export default function CursorAnimation() {
     <div className="relative">
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-1 h-1 bg-white/60 rounded-full pointer-events-none z-90"
+        className="fixed top-0 left-0 w-1 h-1 bg-white/60 rounded-full pointer-events-none z-110"
         style={{ transform: "translate(-50%, -50%)" }}
       />
       <div
         ref={followerRef}
-        className="fixed top-0 left-0 w-8 h-8 border-2 border-white/80 rounded-full pointer-events-none z-90"
+        className="fixed top-0 left-0 w-8 h-8 border-2 border-white/80 rounded-full pointer-events-none z-110"
         style={{ transform: "translate(-50%, -50%)" }}
       />
     </div>
