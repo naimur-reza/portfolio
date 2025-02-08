@@ -63,5 +63,5 @@ layer(base);
 }
 
 .container {
-  @apply max-w-5xl mx-auto px-5 lg:px-0;
+  @apply max-w-5xl mx-auto px-1.5 lg:px-0;
 }

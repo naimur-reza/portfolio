@@ -15,8 +15,8 @@ const Services = () => {
               <Image
                 className="brightness-99"
                 src={assets.anik}
-                height={350}
-                width={320}
+                height={400}
+                width={360}
                 alt="bio-white-image"
               />
             </div>
@@ -38,7 +38,7 @@ const Services = () => {
             <p>Based In Bangladesh</p>
           </div>
         </div>
-        <div className="w-full flex z-10 justify-end flex-col  h-full col-span-2 lg:col-span-3 absolute bottom-0  ">
+        <div className="w-full hidden md:flex z-10 justify-end flex-col  h-full col-span-2 lg:col-span-3 absolute bottom-0  ">
           <video
             loop
             autoPlay

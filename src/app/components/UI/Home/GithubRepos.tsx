@@ -109,7 +109,7 @@ const GitHubData = () => {
         </div>
       </div>
 
-      <div className="w-full flex -z-10 justify-end flex-col  h-full col-span-2 lg:col-span-3 absolute -bottom-10  ">
+      <div className="w-full hidden md:flex -z-10 justify-end flex-col  h-full col-span-2 lg:col-span-3 absolute -bottom-10  ">
         <video
           loop
           autoPlay

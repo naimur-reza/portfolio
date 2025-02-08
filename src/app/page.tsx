@@ -1,5 +1,6 @@
 import { ReactLenis } from "lenis/react";
 import CursorAnimation from "./components/CursorAnimation";
+import Footer from "./components/UI/Home/Footer";
 import GitHubRepos from "./components/UI/Home/GithubRepos";
 import HeroSection from "./components/UI/Home/HeroSection";
 import Menu from "./components/UI/Home/Menu";
@@ -21,7 +22,7 @@ const App = () => {
           <Projects />
           <MySkills />
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </ReactLenis>
   );
