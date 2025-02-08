@@ -35,7 +35,7 @@ export default function CursorAnimation() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative hidden md:block">
       <div
         ref={cursorRef}
         className="fixed top-0 left-0 w-1 h-1 bg-white/60 rounded-full pointer-events-none z-110"
