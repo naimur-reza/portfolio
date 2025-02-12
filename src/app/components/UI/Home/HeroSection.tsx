@@ -2,6 +2,7 @@ import { styles } from "@/app/styles/styles";
 
 import { assets } from "@/assets";
 import Image from "next/image";
+import { default as SplitText } from "../../BlurText";
 
 const HeroSection = () => {
   return (
@@ -10,9 +11,18 @@ const HeroSection = () => {
         <div className="min-h-screen py-[100px]  ">
           <div className="flex justify-between items-center relative z-30">
             <div>
-              <p className={` ${styles.heroHeadText} `}>
-                <span className=" font-algem">Naimur Reza</span>
-              </p>
+              <SplitText
+                text="Hello, I'm Naimur"
+                className={styles.heroHeadText}
+                delay={150}
+                animationFrom={{
+                  opacity: 0,
+                  transform: "translate3d(0,50px,0)",
+                }}
+                animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+                threshold={0.2}
+                rootMargin="-50px"
+              />
               <div className="text-white/80 text-sm lg:text-lg font-medium pl-1 flex items-center gap-2 font-Michroma mt-3">
                 Design
                 <Image

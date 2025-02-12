@@ -62,7 +62,7 @@ const GitHubData = () => {
   );
 
   return (
-    <div className="container z-50 relative mx-auto  rounded-4xl shadow-lg  overflow-hidden">
+    <div className="container z-40 relative mx-auto  rounded-4xl shadow-lg  overflow-hidden">
       <div className="pt-10">
         <p className={styles.sectionSubText}>MY ACTIVITY</p>
         <h2 className={styles.sectionHeadText}>GitHub.</h2>
