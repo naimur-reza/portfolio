@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import { ReactNode, useRef } from "react";
+import { ReactNode, useMemo, useRef } from "react";
 
 const ScrollAnimatedText = ({
   value,
@@ -12,11 +12,11 @@ const ScrollAnimatedText = ({
 }) => {
   const textRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    offset: ["start 0.8", "end 0.20"], // Adjusted for half visibility
+    offset: ["start 0.8", "end 0.20"],
     target: textRef,
   });
 
-  const words = value.split(" ");
+  const words = useMemo(() => value.split(" "), [value]);
 
   return (
     <motion.div className="mx-auto">
@@ -25,7 +25,7 @@ const ScrollAnimatedText = ({
         className="text-white font-semibold text-2xl tracking-tight"
       >
         <p
-          className={`flex  flex-wrap justify-start gap-1 leading-6 text-start ${
+          className={`flex flex-wrap justify-start gap-1 leading-6 text-start ${
             size === "sm"
               ? "text-[15px]"
               : size === "md"
@@ -65,15 +65,14 @@ const Word = ({
   progress: MotionValue<number>;
   word: string;
 }) => {
-  const character = word.split("");
-
+  const characters = useMemo(() => word.split(""), [word]);
   const amount = range[1] - range[0];
-  const step = amount / word.length;
+  const step = amount / characters.length;
 
   return (
     <span>
-      {character.map((item, i) => {
-        const start = range[0] + step * i; // Adjusted for character reveal
+      {characters.map((item, i) => {
+        const start = range[0] + step * i;
         const end = range[0] + step * (i + 1);
 
         return (
@@ -95,11 +94,10 @@ const Character = ({
   range: number[];
   progress: MotionValue<number>;
 }) => {
-  // Adjust opacity to start visible and then fade in
-  const opacity = useTransform(progress, range, [0.2, 1]); // Start at half visibility
+  const opacity = useTransform(progress, range, [0.2, 1]);
 
   return (
-    <span className="relative">
+    <span className="relative will-change-transform will-change-opacity">
       <span className="absolute opacity-[0.3]">{children}</span>
       <motion.span style={{ opacity }}>{children}</motion.span>
     </span>
