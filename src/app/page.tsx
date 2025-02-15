@@ -1,8 +1,4 @@
 import { ReactLenis } from "lenis/react";
-import {
-  default as CursorAnimation,
-  default as SplashCursor,
-} from "./components/CursorAnimation";
 import Footer from "./components/UI/Home/Footer";
 import GitHubRepos from "./components/UI/Home/GithubRepos";
 import HeroSection from "./components/UI/Home/HeroSection";
@@ -15,7 +11,7 @@ import "./globals.css";
 const App = () => {
   return (
     <ReactLenis root options={{ duration: 0.7 }}>
-      <SplashCursor />
+      {/* <SplashCursor /> */}
       <div className=" bg-deep overflow-hidden">
         <Menu />
         <HeroSection />
