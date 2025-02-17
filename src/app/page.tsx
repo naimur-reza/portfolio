@@ -6,6 +6,7 @@ import Menu from "./components/UI/Home/Menu";
 import MySkills from "./components/UI/Home/MySkills";
 import Projects from "./components/UI/Home/Projects";
 import Services from "./components/UI/Home/Services";
+import ValocityText from "./components/ValocityText";
 import "./globals.css";
 
 const App = () => {
@@ -15,6 +16,8 @@ const App = () => {
       <div className=" bg-deep overflow-hidden">
         <Menu />
         <HeroSection />
+
+        <ValocityText />
         <div className="container mx-auto px-5 ">
           <Services />
           <GitHubRepos />

@@ -24,9 +24,6 @@ const Services = () => {
           </div>
 
           <div className=" max-w-xl text-white space-y-5">
-            <h1 className="text-xl lg:text-3xl font-algem">
-              Digital Designer + Creative Developer
-            </h1>
             <ScrollAnimatedText
               size="sm"
               value="Naimur Reza is a skilled full stack developer specializing in
